@@ -84,10 +84,10 @@ def download_images(image_urls:list, product:str): # Download images, check imag
 
         if imgs.width < imgs.height:
             imgs = imgs.resize((round(imgs.width*3), round(imgs.height*3)))
-            imgs.thumbnail((900, 1300), resample=Image.LANCZOS)
+            imgs.thumbnail((800, 1100), resample=Image.LANCZOS)
         elif imgs.width >= imgs.height:
             imgs = imgs.resize((round(imgs.width*3), round(imgs.height*3)))
-            imgs.thumbnail((1400, 1000), resample=Image.LANCZOS)
+            imgs.thumbnail((1100, 800), resample=Image.LANCZOS)
 
         if imgs.mode in ('RGBA', 'P'):
             if imgs.mode in ('P'):
@@ -99,7 +99,7 @@ def download_images(image_urls:list, product:str): # Download images, check imag
 
         i += 1
             
-    return dwld # Return False if any of the images from image urls fails to download
+    return dwld # Return False if any of the images from image urls fails to download, else True
 
 if __name__ == "__main__":
     create_folder()
